@@ -17,10 +17,6 @@ Sales data is the core transactional table. We ensure logical consistency while 
 
 ### A. Chronological Integrity
 1.  **Time Generation**: We generate random timestamps within a defined range (e.g., Jan 2024 - Dec 2025).
-2.  **Sorting & ID Assignment**:
-    *   Timestamps are sorted strictly ascending.
-    *   `order_id`s are assigned *after* sorting (1, 2, 3...) to ensure that $ID_{n} < ID_{n+1}$ implies $Time_{n} \leq Time_{n+1}$.
-    *   *Why*: This allows us to detect when "dirty" timestamp injection (see below) breaks continuity.
 
 ### B. "Dirty" Data Injection
 After generating clean base data, we purposely corrupt specific fields to test the cleaning pipeline:

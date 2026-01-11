@@ -328,7 +328,7 @@ def clean_sales(df, products_df, store_mapping):
 
     # --- FINAL SORT ---
     # Ensure chronological/ID sort
-    df_clean.sort_values("order_id", inplace=True)
+    df_clean.sort_values("order_time", inplace=True)
 
     return df_clean
 

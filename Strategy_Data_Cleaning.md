@@ -27,7 +27,7 @@ We use the **Interquartile Range (IQR)** method for robust outlier detection:
 *   **Missing Prices**: Imputed using the `base_price` from the Product catalog.
 
 ### C. Sorting
-*   Crucially, the final dataset is **sorted by `order_id`**. This ensures that the physical order of the file corresponds to the logical sequence of transactions.
+*   After parsing, range checks, and outlier handling, the dataset is **sorted by `order_time`**. This ensures chronological consistency, which is critical for time-series analysis, even if `order_id`s (PK) are not sequential.
 
 ## 3. Product & Inventory Cleaning
 *   **Products**:

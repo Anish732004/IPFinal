@@ -195,7 +195,6 @@ sales_df = pd.DataFrame(sales)
 # Ensure chronological order (ascending)
 sales_df["order_time"] = pd.to_datetime(sales_df["order_time"])
 sales_df.sort_values("order_time", inplace=True)
-sales_df["order_id"] = range(1, len(sales_df) + 1)
 sales_df["order_time"] = sales_df["order_time"].dt.strftime("%Y-%m-%d %H:%M:%S")
 # Inject missing discount_pct (2–4%)
 sales_df.loc[sales_df.sample(frac=0.03).index, "discount_pct"] = np.nan
